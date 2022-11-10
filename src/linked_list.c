@@ -25,21 +25,36 @@ void free_list(node *p) {
 /* print list to console */
 void print_list(node *p) {
   // Add your code for exercise 1
+  if(p!=NULL)
+  printf("%d",p->value);
+  print_list(p->next);
   // There is NO testcode for this
 }
 
 int sum_squares(node *p) {
   // Add your code for excercise 2
   // You can find the tests in tests.cpp
-  return -1;
+  if(p==NULL){
+    return 0;
+  }
+    return square(p->value)+sum_squares(p->next);
 }
-
 typedef int (*fn_int_to_int)(int);
 
 node *map(node *p, fn_int_to_int f) { 
   // Add your code for excercise 3
+if(p==NULL){
+return NULL;
+}
+else{
+  node *t=malloc(sizeof(node));
+
+  t->value=f(p->value);
+  t->next = map(p->next, f);
   
-  return NULL; 
+  return t;
+}
+
 }
 
 int square(int x) { return x * x; }
