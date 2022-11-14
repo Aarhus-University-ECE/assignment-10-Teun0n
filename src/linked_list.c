@@ -25,15 +25,20 @@ void free_list(node *p) {
 /* print list to console */
 void print_list(node *p) {
   // Add your code for exercise 1
-  if(p!=NULL)
-  printf("%d",p->value);
-  print_list(p->next);
+  if(p!=NULL)//stops at the end of the list
+  printf("%d",p->value);//prints value of p node.
+  print_list(p->next);//goes to next node.
   // There is NO testcode for this
 }
 
 int sum_squares(node *p) {
   // Add your code for excercise 2
   // You can find the tests in tests.cpp
+
+/*using square function below the sum is found by adding
+the return value of square function of all nodes until p=NULL.
+*/
+
   if(p==NULL){
     return 0;
   }
@@ -43,14 +48,16 @@ typedef int (*fn_int_to_int)(int);
 
 node *map(node *p, fn_int_to_int f) { 
   // Add your code for excercise 3
-if(p==NULL){
+  //operation from function f is applied to linked all values of linked list p, and the returned.
+
+if(p==NULL){//edge case for empty list, returns NULL when empty.
 return NULL;
 }
 else{
-  node *t=malloc(sizeof(node));
+  node *t=malloc(sizeof(node));// temporary node t is made.
 
-  t->value=f(p->value);
-  t->next = map(p->next, f);
+  t->value=f(p->value);// the value of the is set to return value of f(p->value)
+  t->next = map(p->next, f);//t's next is set to return of map function. This is how
   
   return t;
 }
