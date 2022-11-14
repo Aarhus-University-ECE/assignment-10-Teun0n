@@ -36,18 +36,15 @@ struct tree_node *Remove(int x, struct tree_node *t) {
   // Remove one item from the tree t
   //struct tree_node *temp=t;
 
- if(Contains(x,t)!=true){
+ if(Contains(x,t)!=true){//if x isn't in btree tree is returned.
   return t;
  }
-  
- }
- else
-  if(x==t->item){
+  if(x==t->item){//
     if(t->right==NULL){
       t = t->left;
       return t;
     }
-    t = t->right
+    t = t->right;
     while(t!=NULL){
       t = t->left;
     }
