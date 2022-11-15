@@ -48,7 +48,7 @@ typedef int (*fn_int_to_int)(int);
 
 node *map(node *p, fn_int_to_int f) { 
   // Add your code for excercise 3
-  //operation from function f is applied to linked all values of linked list p, and the returned.
+  //operation from function f is applied to linked all values of linked list p, and then returned.
 
 if(p==NULL){//edge case for empty list, returns NULL when empty.
 return NULL;
@@ -56,7 +56,7 @@ return NULL;
 else{
   node *t=malloc(sizeof(node));// temporary node t is made.
 
-  t->value=f(p->value);// the value of the is set to return value of f(p->value)
+  t->value=f(p->value);// the value of the t is set to the return value of f(p->value)
   t->next = map(p->next, f);//t's next is set to return of map function. This is how
   
   return t;
